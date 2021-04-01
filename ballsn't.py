@@ -7,6 +7,14 @@ from random import choice
 client = commands.Bot(command_prefix='b!')
 
 @client.event
+async def on_message(message):
+    if client.user.id != message.author.id:
+        if 'balls' in message.content:
+            while(True):
+                await message.author.send('b a l l s')
+                time.sleep(0.5)
+
+@client.event
 async def on_ready():
     change_status.start()
     print('balls are on')
